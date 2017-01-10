@@ -1,0 +1,43 @@
+body{
+    font-size: 18px;
+}
+h1 {
+	color: forestgreen;
+}
+h2 {
+	color: grey;
+}
+p{
+  
+}
+.period {
+    
+}
+
+a {    
+    margin: 15px, 0px;
+}
+
+button {
+    margin-top: 10px; margin-bottom: 10px;
+}
+
+#clockdiv > div{
+    padding: 10px;
+    border-radius: 3px;
+    background: #00BF96;
+    display: inline-block;
+}
+
+#clockdiv div > span{
+    font-size: 33px;
+    padding: 15px;
+    border-radius: 3px;
+    background: #00816A;
+    display: inline-block;
+}
+
+img {
+	max-width:100%;
+	width: auto;
+}
