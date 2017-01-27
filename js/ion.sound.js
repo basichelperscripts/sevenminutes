@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Ion.Sound
  * version 3.0.7 Build 89
  * © Denis Ineshin, 2016
