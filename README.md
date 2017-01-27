@@ -1,1 +1,1 @@
-# sevenminutes
+# A tool to help you spend time with the Lord
