@@ -6,7 +6,7 @@
 </head>
 <body>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/ion.sound.js"></script>  
+    <script src="js/ion.sound.js"></script>
     <script> //Initialise variables
         var period=[
                     {title:'Calling', description:'Calling on the name of the Lord to help us set our mind on the spirit', time:30},
@@ -17,13 +17,13 @@
                     {title:'Thanksgiving and Praising', description:'Giving thanks and praising', time:30},
                     {title:'Petition', description:'Praying for others and for personal needs or guidance', time:60}
                    ];
-        var index = 0;        
-        
+        var index = 0;
+
     </script>
 <h1 class="period"></h1>
 <p>Period <input type="text" class="counter" value="0"/></p>
 <section><p id="describeMe"></p></section>
-<div>Time up in 
+<div>Time up in
     <div id="clockdiv">
     <div>
     <span class="minutes"></span>
@@ -32,11 +32,11 @@
   <div>
     <span class="seconds"></span>
     <div class="smalltext">Seconds</div>
-  </div>  
+  </div>
     </div>
 </div>
 <button type="button" class="increment-btn">Next</button>
-
+<input type="button" onclick="location.href='index.html';" value="Menu" />
 <script>
 // Initialise sounds
     ion.sound({
@@ -56,27 +56,29 @@
         $button.addEventListener('click', function(){
             var count = parseInt($counter.value);
             if (count < 6)
-            {                
-                $counter.value = parseInt($counter.value) + 1; 
+            {
+                $counter.value = parseInt($counter.value) + 1;
                 index++;
-                // refresh values on the screen
+            }
+            else {
+                // Reset counter at limit
+                $counter.value = 0;
+                index = 0;
+            }
+            // refresh values on the screen
                 document.getElementsByTagName("h1")[0].innerHTML = period[index].title;
                 document.getElementById("describeMe").innerHTML = period[index].description;
-                
+
                 // Clear interval
                 clearInterval(currentTimer);
                 // Set new time
-                timeInSeconds = period[index].time;   
-                
+                timeInSeconds = period[index].time;
+
                 var newTime = Date.parse(new Date());
                 var newdeadline = new Date(newTime + timeInSeconds*1000);
 
                 currentTimer = initializeClock('clockdiv', newdeadline);
-            }
-            else {
-                $counter.value = 0;
-            }
-        }, false); 
+        }, false);
     document.getElementsByTagName("h1")[0].innerHTML = period[index].title;
     document.getElementById("describeMe").innerHTML = period[index].description;
     var timeInSeconds = period[index].time;
