@@ -6,6 +6,13 @@
 </head>
 <body>
 	<h1>Configure how much time you spend</h1>
-    <input type="button" class="btn" onclick="location.href='index.html';" value="Menu" />
+    <input type="checkbox" class="auto" id="AutoStep" />Automatically step at time up<br>
+    <input type="button" class="btn" id="Savebtn" onclick="storeSettings()" name="Save" value="Save" />
+    <input type="button" class="btn" onclick="location.href='index.html';" value="Menu" />    
+    <script language="Javascript">
+        function storeSettings() {
+            sessionStorage.auto = document.getElementById("AutoStep").checked;
+        }
+    </script>
 </body>
 </html>
