@@ -10,6 +10,11 @@
     <input type="button" class="btn" id="Savebtn" onclick="storeSettings()" name="Save" value="Save" />
     <input type="button" class="btn" onclick="location.href='index.html';" value="Menu" />    
     <script language="Javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            if (sessionStorage.auto == "true") {
+                document.getElementById("AutoStep").checked = "true";
+            }
+        });
         function storeSettings() {
             sessionStorage.auto = document.getElementById("AutoStep").checked;
         }
