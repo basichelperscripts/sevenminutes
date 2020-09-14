@@ -22,9 +22,9 @@
         var auto = false;
     </script>
 <h1 class="period"></h1>
-<p>Period <input type="text" class="counter" value="0"/></p>
+    <input type="hidden" class="counter" value="0"/>
 <section><p id="describeMe"></p></section>
-<div>Time up in:    
+<div>Time up in:
     <div id="clockdiv">
     <div>
     <span class="minutes"></span>
@@ -52,10 +52,10 @@
         });
 
 </script>
-<script>    
+<script>
     var $button = document.querySelector('.increment-btn');
     var $counter = document.querySelector('.counter');
-        
+
     function increaseStep() {
         var count = parseInt($counter.value);
             if (count < 6)
@@ -81,14 +81,14 @@
                 var newdeadline = new Date(newTime + timeInSeconds*1000);
 
                 currentTimer = initializeClock('clockdiv', newdeadline);
-    }    
-    
+    }
+
     $button.addEventListener('click', function(){ increaseStep(); }, false);
-    
+
     document.getElementsByTagName("h1")[0].innerHTML = period[index].title;
     document.getElementById("describeMe").innerHTML = period[index].description;
-    var timeInSeconds = period[index].time;    
-    
+    var timeInSeconds = period[index].time;
+
 </script>
 
 <script src="js/countdown.js">
