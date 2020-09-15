@@ -1,7 +1,18 @@
 var currentTime = Date.parse(new Date());
 var deadline = new Date(currentTime + timeInSeconds*1000);
+$initialDeadline = new Date();
 
 var currentTimer = initializeClock('clockdiv', deadline);
+
+function seconds_since_epoch(d){
+    return Math.floor( d / 1000 );
+}
+
+function increaseTotalTime()
+{
+    let seconds = seconds_since_epoch(new Date()) - seconds_since_epoch($initialDeadline);
+    document.getElementById("globalTimeTaken").innerHTML = seconds;
+}
 
 function getTimeRemaining(endtime) {
     var t = Date.parse(endtime) - Date.parse(new Date());
@@ -45,7 +56,7 @@ function increaseStep() {
     currentTimer = initializeClock('clockdiv', newdeadline);
 }
 
-/// initialize a clock for a given id and endtime
+/// initialize a clock for a given HTML attribute id and endtime
 function initializeClock(id, endtime) {
     var clock = document.getElementById(id);
     var minutesSpan = clock.querySelector('.minutes');
@@ -53,6 +64,7 @@ function initializeClock(id, endtime) {
 
   function updateClock() {
     var t = getTimeRemaining(endtime);
+    increaseTotalTime();
 
     if (t.total > 0) {
         minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
