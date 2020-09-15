@@ -21,49 +21,49 @@
         let index = 0;
         let auto = false;
     </script>
-<h1 class="period"></h1>
-    <input type="hidden" class="counter" value="0"/>
-<section><p id="describeMe"></p></section>
-<div>Time up in:
-    <div id="clockdiv">
-    <div>
-    <span class="minutes"></span>
-    <div class="smalltext">Minutes</div>
-  </div>
-  <div>
-    <span class="seconds"></span>
-    <div class="smalltext">Seconds</div>
-  </div>
+    <h1 class="period"></h1>
+        <input type="hidden" class="counter" value="0"/>
+    <section><p id="describeMe"></p></section>
+    <div>Time up in:
+        <div id="clockdiv">
+            <div>
+                <span class="minutes"></span>
+                <div class="smalltext">Minutes</div>
+            </div>
+            <div>
+                <span class="seconds"></span>
+                <div class="smalltext">Seconds</div>
+            </div>
+        </div>
     </div>
-</div>
     <br>
-<button type="button" class="increment-btn btn">Next</button>
-<br>
-<input type="button" class="btn" onclick="location.href='index.html';" value="Menu" />
-<script>
-// Initialise sounds
-    ion.sound({
-            sounds: [
-                {name: "bell_ring"}
-            ],
-            path: "sounds/",
-            preload: true,
-            volume: 2.0
-        });
-</script>
+    <button type="button" class="increment-btn btn">Next</button>
+    <br>
+    <input type="button" class="btn" onclick="location.href='index.html';" value="Menu" />
+    <script>
+    // Initialise sounds
+        ion.sound({
+                sounds: [
+                    {name: "bell_ring"}
+                ],
+                path: "sounds/",
+                preload: true,
+                volume: 2.0
+            });
+    </script>
 
-<script>
-let $button = document.querySelector('.increment-btn');
-let $counter = document.querySelector('.counter');
+    <script>
+    let $button = document.querySelector('.increment-btn');
+    let $counter = document.querySelector('.counter');
 
-$button.addEventListener('click', function(){ increaseStep(); }, false);
+    $button.addEventListener('click', function(){ increaseStep(); }, false);
 
-document.getElementsByTagName("h1")[0].innerHTML = period[index].title;
-document.getElementById("describeMe").innerHTML = period[index].description;
-let timeInSeconds = period[index].time;
+    document.getElementsByTagName("h1")[0].innerHTML = period[index].title;
+    document.getElementById("describeMe").innerHTML = period[index].description;
+    let timeInSeconds = period[index].time;
 
-</script>
-<script src="js/countdown.js"></script>
+    </script>
+    <script src="js/countdown.js"></script>
 
 </body>
 </html>

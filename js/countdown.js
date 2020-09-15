@@ -66,7 +66,7 @@ function initializeClock(id, endtime) {
         if (t.total <= 0) {
             clearInterval(timeinterval);
             ion.sound.play("bell_ring");
-            if (sessionStorage.auto == "true")
+            if (sessionStorage.auto === "true")
             {
                 increaseStep();
             }
