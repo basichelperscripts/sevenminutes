@@ -9,7 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="js/ion.sound.js"></script>
     <script> //Initialise variables
-        var period=[
+        let period=[
                     {title:'Calling', description:'Calling on the name of the Lord to help us set our mind on the spirit', time:30},
                     {title:'Prayer', description:'Opening our heart to the Lord telling Him what we want from Him', time:60},
                     {title:'Pray-reading', description:'Using our spirit to contact the Spirit in the Word by mingling our reading with prayer and personalising the Word in our prayer', time:150},
@@ -18,8 +18,8 @@
                     {title:'Thanksgiving and Praising', description:'Giving thanks and praising', time:30},
                     {title:'Petition', description:'Praying for others and for personal needs or guidance', time:60}
                    ];
-        var index = 0;
-        var auto = false;
+        let index = 0;
+        let auto = false;
     </script>
 <h1 class="period"></h1>
     <input type="hidden" class="counter" value="0"/>
@@ -50,49 +50,20 @@
             preload: true,
             volume: 2.0
         });
-
 </script>
+
 <script>
-    var $button = document.querySelector('.increment-btn');
-    var $counter = document.querySelector('.counter');
+let $button = document.querySelector('.increment-btn');
+let $counter = document.querySelector('.counter');
 
-    function increaseStep() {
-        var count = parseInt($counter.value);
-            if (count < 6)
-            {
-                $counter.value = parseInt($counter.value) + 1;
-                index++;
-            }
-            else {
-                // Reset counter at limit
-                $counter.value = 0;
-                index = 0;
-            }
-            // refresh values on the screen
-                document.getElementsByTagName("h1")[0].innerHTML = period[index].title;
-                document.getElementById("describeMe").innerHTML = period[index].description;
+$button.addEventListener('click', function(){ increaseStep(); }, false);
 
-                // Clear interval
-                clearInterval(currentTimer);
-                // Set new time
-                timeInSeconds = period[index].time;
-
-                var newTime = Date.parse(new Date());
-                var newdeadline = new Date(newTime + timeInSeconds*1000);
-
-                currentTimer = initializeClock('clockdiv', newdeadline);
-    }
-
-    $button.addEventListener('click', function(){ increaseStep(); }, false);
-
-    document.getElementsByTagName("h1")[0].innerHTML = period[index].title;
-    document.getElementById("describeMe").innerHTML = period[index].description;
-    var timeInSeconds = period[index].time;
+document.getElementsByTagName("h1")[0].innerHTML = period[index].title;
+document.getElementById("describeMe").innerHTML = period[index].description;
+let timeInSeconds = period[index].time;
 
 </script>
-
-<script src="js/countdown.js">
-</script>
+<script src="js/countdown.js"></script>
 
 </body>
 </html>
