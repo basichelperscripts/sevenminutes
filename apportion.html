@@ -1,12 +1,12 @@
 <html>
 <head>
-	<title>Having Seven minutes with the Lord</title>
+	<title>Spending time with the Lord</title>
 	<link rel="stylesheet" href="css/main.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Purpose: Configure your time with the Lord, Page type: Tool, Category: Online tool, Price: Free">
 </head>
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <script src="js/ion.sound.js"></script>
     <script> //Initialise variables
         let period=[
@@ -22,11 +22,7 @@
         let auto = false;
     </script>
     <h1 class="period"></h1>
-        <div id="keepTrackTotalTime">
-            <label>Total time: </label>
-            <span id="globalTimeTaken">0</span>
-        </div>
-        <input type="hidden" class="counter" value="0"/>
+    <input type="hidden" class="counter" value="0"/>
     <section><p id="describeMe"></p></section>
     <div>Time up in:
         <div id="clockdiv">
@@ -44,6 +40,10 @@
     <button type="button" class="increment-btn btn">Next</button>
     <br>
     <input type="button" class="btn" onclick="location.href='index.html';" value="Menu" />
+    <div id="keepTrackTotalTime">
+        <label>Total time taken (minutes): </label>
+        <span id="globalTimeTaken">0</span>
+    </div>
     <script>
     // Initialise sounds
         ion.sound({

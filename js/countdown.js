@@ -1,25 +1,25 @@
-var currentTime = Date.parse(new Date());
-var deadline = new Date(currentTime + timeInSeconds*1000);
+let currentTime = Date.parse(new Date());
+let deadline = new Date(currentTime + timeInSeconds*1000);
 $initialDeadline = new Date();
 
-var currentTimer = initializeClock('clockdiv', deadline);
+let currentTimer = initializeClock('clockdiv', deadline);
 
-function seconds_since_epoch(d){
-    return Math.floor( d / 1000 );
+function minutes_since_epoch(d){
+    return Math.floor( d / 1000 / 60 );
 }
 
 function increaseTotalTime()
 {
-    let seconds = seconds_since_epoch(new Date()) - seconds_since_epoch($initialDeadline);
-    document.getElementById("globalTimeTaken").innerHTML = seconds;
+    let minutes = minutes_since_epoch(new Date()) - minutes_since_epoch($initialDeadline);
+    document.getElementById("globalTimeTaken").innerHTML = minutes;
 }
 
 function getTimeRemaining(endtime) {
-    var t = Date.parse(endtime) - Date.parse(new Date());
-    var seconds = Math.floor((t / 1000) % 60);
-    var minutes = Math.floor((t / 1000 / 60) % 60);
-    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    let t = Date.parse(endtime) - Date.parse(new Date());
+    let seconds = Math.floor((t / 1000) % 60);
+    let minutes = Math.floor((t / 1000 / 60) % 60);
+    let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    let days = Math.floor(t / (1000 * 60 * 60 * 24));
     return {
         'total': t,
         'days': days,
@@ -58,12 +58,12 @@ function increaseStep() {
 
 /// initialize a clock for a given HTML attribute id and endtime
 function initializeClock(id, endtime) {
-    var clock = document.getElementById(id);
-    var minutesSpan = clock.querySelector('.minutes');
-    var secondsSpan = clock.querySelector('.seconds');
+    let clock = document.getElementById(id);
+    let minutesSpan = clock.querySelector('.minutes');
+    let secondsSpan = clock.querySelector('.seconds');
 
   function updateClock() {
-    var t = getTimeRemaining(endtime);
+    let t = getTimeRemaining(endtime);
     increaseTotalTime();
 
     if (t.total > 0) {
@@ -86,6 +86,6 @@ function initializeClock(id, endtime) {
     }
 
     updateClock();
-    var timeinterval = setInterval(updateClock, 1000);
+    let timeinterval = setInterval(updateClock, 1000);
     return timeinterval;
 }
