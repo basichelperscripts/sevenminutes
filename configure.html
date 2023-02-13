@@ -8,6 +8,7 @@
 <body>
 	<h1>Configure your time with the Lord</h1>
     <input type="checkbox" class="auto" id="AutoStep" />Automatically step at time up<br>
+    <input type="checkbox" class="auto" id="Sound" />Use sound after steps done<br>
     <input type="button" class="btn" id="Savebtn" onclick="storeSettings()" name="Save" value="Save" />
     <input type="button" class="btn" onclick="location.href='index.html';" value="Menu" />    
     <script language="Javascript">
@@ -15,9 +16,13 @@
             if (sessionStorage.auto == "true") {
                 document.getElementById("AutoStep").checked = "true";
             }
+            if (sessionStorage.sevenMinutesSound == "true") {
+                document.getElementById("Sound").checked = "true";
+            }
         });
         function storeSettings() {
             sessionStorage.auto = document.getElementById("AutoStep").checked;
+            sessionStorage.sevenMinutesSound = document.getElementById("Sound").checked;
         }
     </script>
 </body>
